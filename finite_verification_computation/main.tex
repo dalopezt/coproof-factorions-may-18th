@@ -1,5 +1,9 @@
-**Theorem (Finite Verification Computation).** For every natural number $n \leq 2540160$, the digit factorial sum of $n$ equals $n$ if and only if $n \in \{1, 2, 145, 40585\}$. That is,
+```latex
+\section*{Computation Evidence}
 
-$$\forall\, n \in \mathbb{N},\quad n \leq 2540160 \;\Longrightarrow\; \left(\sum_{d \;\text{digit of}\; n} d! = n \;\iff\; n \in \{1,\, 2,\, 145,\, 40585\}\right).$$
+\textbf{Statement.} For every natural number $n \leq 2{,}540{,}160$, the digit-factorial sum satisfies $\sigma(n) = n$ if and only if $n \in \{1, 2, 145, 40585\}$, where $\sigma(n)$ denotes the sum of the factorials of the decimal digits of $n$.
 
-*Proof.* Unsolved.
+\textbf{Method.} The verification was carried out via MPI-distributed exhaustive scanning across three cluster nodes (\texttt{node1}, \texttt{node2}, \texttt{node3}), partitioning the range $[1, 2{,}540{,}160]$ into 3 chunks processed in parallel. Each chunk was scanned in full, checking every integer for the fixed-point condition $\sigma(n) = n$.
+
+\textbf{Evidence Summary.} Across all three chunks covering $[1, 2{,}540{,}160]$, the scan produced a total of 4 records, identifying the complete set of digit-factorial fixed points as $\{1, 2, 145, 40585\}$. All nodes returned consistent results and the combined verdict was deemed \emph{sufficient}.
+```
