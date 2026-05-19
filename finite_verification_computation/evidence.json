@@ -1,0 +1,56 @@
+{
+  "artifacts": {
+    "decompress_hint": "Python: import gzip,base64,pathlib; raw=base64.b64decode(pathlib.Path('<file>.gz.b64').read_text()); print(gzip.decompress(raw).decode('utf-8')[:500])",
+    "full_result_compressed_b64": "finite_verification_computation/evidence_full.json.gz.b64",
+    "full_result_hash_sha256": "68c651ae28e859dc595c115f75532e2c4d8386524ea274ba4ef2bd6b9314ab1f",
+    "records_csv_compressed_b64": "finite_verification_computation/evidence_records.csv.gz.b64",
+    "records_csv_hash_sha256": "7b6e2684a1cba68a296fc56bcb4cb765d35e2a3e64c80ebad4abe09d487e0172"
+  },
+  "entrypoint": "run",
+  "error": null,
+  "evidence": [
+    {
+      "factorions_found": [
+        1,
+        2,
+        145,
+        40585
+      ],
+      "range": [
+        0,
+        846720
+      ]
+    },
+    {
+      "factorions_found": [],
+      "range": [
+        846721,
+        1693441
+      ]
+    },
+    {
+      "factorions_found": [],
+      "range": [
+        1693442,
+        2540160
+      ]
+    }
+  ],
+  "language": "mpi",
+  "lean_statement": "\u2200 n : \u2115, n \u2264 2540160 \u2192 (digitFactorialSum n = n \u2194 n \u2208 ({1, 2, 145, 40585} : Set \u2115))",
+  "node_name": "finite_verification_computation",
+  "processing_time_seconds": 20.478297,
+  "records_count": 4,
+  "stderr": "",
+  "stdout": "",
+  "sufficient": true,
+  "summary": "Range [0, 846720]: found factorions [1, 2, 145, 40585]; Range [846721, 1693441]: found factorions []; Range [1693442, 2540160]: found factorions []",
+  "target": {
+    "expected": [
+      1,
+      2,
+      145,
+      40585
+    ]
+  }
+}
