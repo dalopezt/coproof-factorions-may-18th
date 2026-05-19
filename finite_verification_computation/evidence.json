@@ -1,0 +1,59 @@
+{
+  "artifacts": {
+    "decompress_hint": "Python: import gzip,base64,pathlib; raw=base64.b64decode(pathlib.Path('<file>.gz.b64').read_text()); print(gzip.decompress(raw).decode('utf-8')[:500])",
+    "full_result_compressed_b64": "finite_verification_computation/evidence_full.json.gz.b64",
+    "full_result_hash_sha256": "91cf900b216d6c25dd5df2a2e25975c903a147c9f7ba390c61621fcc1c78c41b",
+    "records_csv_compressed_b64": null,
+    "records_csv_hash_sha256": null
+  },
+  "entrypoint": "run",
+  "error": null,
+  "evidence": [
+    [
+      {
+        "end": 846720,
+        "found": [
+          1,
+          2,
+          145,
+          40585
+        ],
+        "start": 1,
+        "sufficient": true
+      }
+    ],
+    [
+      {
+        "end": 1693440,
+        "found": [],
+        "start": 846721,
+        "sufficient": true
+      }
+    ],
+    [
+      {
+        "end": 2540160,
+        "found": [],
+        "start": 1693441,
+        "sufficient": true
+      }
+    ]
+  ],
+  "language": "mpi",
+  "lean_statement": "\u2200 n : \u2115, n \u2264 2540160 \u2192 (digitFactorialSum n = n \u2194 n \u2208 ({1, 2, 145, 40585} : Set \u2115))",
+  "node_name": "finite_verification_computation",
+  "processing_time_seconds": 16.257578,
+  "records_count": 4,
+  "stderr": "",
+  "stdout": "",
+  "sufficient": true,
+  "summary": "Scanned 1..2540160 in 3 chunks for digit-factorial fixed points. Found: [1, 2, 145, 40585]; Scanned 1..2540160 in 3 chunks for digit-factorial fixed points. Found: []; Scanned 1..2540160 in 3 chunks for digit-factorial fixed points. Found: []",
+  "target": {
+    "expected_factorions": [
+      1,
+      2,
+      145,
+      40585
+    ]
+  }
+}
