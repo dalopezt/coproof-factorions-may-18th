@@ -1,4 +1,9 @@
-**Theorem.** The set of natural numbers equal to the sum of the factorials of their own decimal digits is exactly $\{1, 2, 145, 40585\}$. That is, defining $f(n) = \sum_{d \,\in\, \text{digits}(n)} d!$, we have
-$$\{\, n \in \mathbb{N} \mid f(n) = n \,\} = \{1,\, 2,\, 145,\, 40585\}.$$
+**Theorem.** The set of natural numbers equal to the sum of the factorials of their own digits is exactly $\{1, 2, 145, 40585\}$. That is,
+$$\{\, n \in \mathbb{N} \mid \sigma(n) = n \,\} = \{1,\, 2,\, 145,\, 40585\},$$
+where $\sigma(n)$ denotes the sum of the factorials of the decimal digits of $n$.
 
-*Proof.* Unsolved.
+*Proof.* We prove the two inclusions separately.
+
+$(\subseteq)$ Let $n \in \mathbb{N}$ satisfy $\sigma(n) = n$. By \textbf{Upper Bound}, every solution must satisfy $n \leq 2540160$; hence any $n > 2540160$ yields a contradiction and is excluded. For $n \leq 2540160$, \textbf{Finite Verification} supplies a decidable equivalence $\sigma(n) = n \iff n \in \{1, 2, 145, 40585\}$, so $n$ belongs to the stated set.
+
+$(\supseteq)$ Let $n \in \{1, 2, 145, 40585\}$. Since every element of this finite set satisfies $n \leq 2540160$, \textbf{Finite Verification} again applies and directly gives $\sigma(n) = n$ for each such $n$. $\blacksquare$
