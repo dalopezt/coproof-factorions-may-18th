@@ -1,5 +1,10 @@
-% Label: Growth Dominates
+**Theorem.** For every natural number $n > 2{,}540{,}160$, we have $362880 \cdot (\lfloor \log_{10} n \rfloor + 1) < n$.
 
-**Theorem (Growth Dominates).** For every natural number $n > 2540160$, we have $$362880 \cdot (\lfloor \log_{10} n \rfloor + 1) < n.$$
+*Proof.* The proof splits on whether the base-10 logarithm of $n$ is small or large.
 
-*Proof.* Unsolved.
+**Case 1: $\lfloor \log_{10} n \rfloor \leq 6$.** Then $\lfloor \log_{10} n \rfloor + 1 \leq 7$, so
+$$362880 \cdot (\lfloor \log_{10} n \rfloor + 1) \leq 362880 \cdot 7 = 2{,}540{,}160 < n.$$
+
+**Case 2: $\lfloor \log_{10} n \rfloor \geq 7$.** Write $k = \lfloor \log_{10} n \rfloor$ and set $d = k - 7 \geq 0$, so $k = d + 7$. One first establishes by induction on $d$ that
+$$362880 \cdot (d + 8) < 10^{d+7}$$
+for all $d \geq 0$. The base case $d = 0$ is the numerical check $362880 \cdot 8 = 2{,}903{,}040 < 10^7$. For the inductive step, multiplying through by 10 and using $10 \cdot (d + 8) > d + 9$ gives the result. Instantiating at $d = k - 7$ yields $362880 \cdot (k + 1) < 10^k$. Since $10^k \leq n$ by the standard property of the integer logarithm, we conclude $362880 \cdot (\lfloor \log_{10} n \rfloor + 1) < n$. $\blacksquare$
