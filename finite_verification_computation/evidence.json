@@ -1,0 +1,43 @@
+{
+  "artifacts": {
+    "decompress_hint": "Python: import gzip,base64,pathlib; raw=base64.b64decode(pathlib.Path('<file>.gz.b64').read_text()); print(gzip.decompress(raw).decode('utf-8')[:500])",
+    "full_result_compressed_b64": "finite_verification_computation/evidence_full.json.gz.b64",
+    "full_result_hash_sha256": "1cdf092bdf3be42cc64a5971409168674c5079820ef5c0b07bb9a4e345a9fb05",
+    "records_csv_compressed_b64": null,
+    "records_csv_hash_sha256": null
+  },
+  "entrypoint": "run",
+  "error": null,
+  "evidence": {
+    "input": [
+      0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1
+    ],
+    "target": {
+      "description": "f(x) in [0, 2] for x in [0,1]",
+      "kind": "range_check"
+    }
+  },
+  "language": "python",
+  "lean_statement": "\u2200 n : \u2115, n \u2264 2540160 \u2192 (digitFactorialSum n = n \u2194 n \u2208 ({1, 2, 145, 40585} : Set \u2115))",
+  "node_name": "finite_verification_computation",
+  "processing_time_seconds": 0.178814,
+  "records_count": 0,
+  "stderr": "",
+  "stdout": "",
+  "sufficient": true,
+  "summary": "Demo computation succeeded",
+  "target": {
+    "description": "f(x) in [0, 2] for x in [0,1]",
+    "kind": "range_check"
+  }
+}
