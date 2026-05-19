@@ -1,0 +1,27 @@
+def run(input_data, target):
+    import math
+    digit_factorials = [math.factorial(d) for d in range(10)]
+    expected = set(target.get('expected', [1, 2, 145, 40585]))
+    chunk_results = []
+    all_found = []
+    for chunk in input_data:
+        start = chunk['start']
+        end = chunk['end']
+        found = []
+        for n in range(start, end + 1):
+            temp = n
+            s = 0
+            if temp == 0:
+                s = digit_factorials[0]
+            else:
+                while temp > 0:
+                    s += digit_factorials[temp % 10]
+                    temp //= 10
+            if s == n:
+                found.append(n)
+        chunk_results.append({'start': start, 'end': end, 'factorials_found': found})
+        all_found.extend(found)
+    sufficient = all(x in expected for x in all_found)
+    total_checked = sum(c['end'] - c['start'] + 1 for c in chunk_results)
+    summary = 'Checked {} numbers across {} chunk(s). Digit-factorial fixed points found: {}'.format(total_checked, len(chunk_results), all_found)
+    return {'evidence': chunk_results, 'sufficient': sufficient, 'summary': summary, 'records': all_found}
