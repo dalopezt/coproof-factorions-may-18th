@@ -1,0 +1,59 @@
+{
+  "artifacts": {
+    "decompress_hint": "Python: import gzip,base64,pathlib; raw=base64.b64decode(pathlib.Path('<file>.gz.b64').read_text()); print(gzip.decompress(raw).decode('utf-8')[:500])",
+    "full_result_compressed_b64": "finite_verification_computation/evidence_full.json.gz.b64",
+    "full_result_hash_sha256": "72735100f03e36ae715bc97ed475bac1b10d5a85deeaa2cf1167ce3a953a8c77",
+    "records_csv_compressed_b64": null,
+    "records_csv_hash_sha256": null
+  },
+  "entrypoint": "run",
+  "error": null,
+  "evidence": [
+    [
+      {
+        "chunk_end": 846720,
+        "chunk_start": 1,
+        "found": [
+          1,
+          2,
+          145,
+          40585
+        ],
+        "sufficient": true
+      }
+    ],
+    [
+      {
+        "chunk_end": 1693440,
+        "chunk_start": 846721,
+        "found": [],
+        "sufficient": true
+      }
+    ],
+    [
+      {
+        "chunk_end": 2540160,
+        "chunk_start": 1693441,
+        "found": [],
+        "sufficient": true
+      }
+    ]
+  ],
+  "language": "mpi",
+  "lean_statement": "{n : \u2115 | digitFactorialSum n = n} = {1, 2, 145, 40585}",
+  "node_name": "finite_verification_computation",
+  "processing_time_seconds": 20.192867,
+  "records_count": 4,
+  "stderr": "",
+  "stdout": "",
+  "sufficient": true,
+  "summary": "Scanned 1..2540160 across chunks. Found factorions: [1, 2, 145, 40585]. All within expected: True.; Scanned 1..2540160 across chunks. Found factorions: []. All within expected: True.; Scanned 1..2540160 across chunks. Found factorions: []. All within expected: True.",
+  "target": {
+    "expected_factorions": [
+      1,
+      2,
+      145,
+      40585
+    ]
+  }
+}
