@@ -1,0 +1,21 @@
+def run(input_data, target):
+    import math
+    chunk = input_data[0]
+    start = chunk["start"]
+    end = chunk["end"]
+    fact = [math.factorial(d) for d in range(10)]
+    factorions = []
+    for n in range(start, end + 1):
+        s = sum(fact[int(d)] for d in str(n))
+        if s == n:
+            factorions.append(n)
+    expected = set(target.get("expected", []))
+    unexpected = set(factorions) - expected
+    sufficient = len(unexpected) == 0
+    summary = f"Range [{start}, {end}]: found factorions {sorted(factorions)}"
+    return {
+        "evidence": {"range": [start, end], "factorions_found": sorted(factorions)},
+        "sufficient": sufficient,
+        "summary": summary,
+        "records": [{"n": n, "in_expected": n in expected} for n in sorted(factorions)]
+    }

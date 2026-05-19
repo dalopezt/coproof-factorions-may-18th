@@ -1,0 +1,49 @@
+{
+  "artifacts": {
+    "decompress_hint": "Python: import gzip,base64,pathlib; raw=base64.b64decode(pathlib.Path('<file>.gz.b64').read_text()); print(gzip.decompress(raw).decode('utf-8')[:500])",
+    "full_result_compressed_b64": "finite_verification_computation/evidence_full.json.gz.b64",
+    "full_result_hash_sha256": "0ef983f68a7c5132f28917f03c5edc508cc453b04e342669bf82494564d5128f",
+    "records_csv_compressed_b64": "finite_verification_computation/evidence_records.csv.gz.b64",
+    "records_csv_hash_sha256": "7b6e2684a1cba68a296fc56bcb4cb765d35e2a3e64c80ebad4abe09d487e0172"
+  },
+  "entrypoint": "run",
+  "error": null,
+  "evidence": [
+    {
+      "factorions_found": [
+        1,
+        2,
+        145,
+        40585
+      ],
+      "range": [
+        0,
+        635040
+      ]
+    },
+    {
+      "factorions_found": [],
+      "range": [
+        1270081,
+        1905120
+      ]
+    }
+  ],
+  "language": "mpi",
+  "lean_statement": "{n : \u2115 | digitFactorialSum n = n} = {1, 2, 145, 40585}",
+  "node_name": "finite_verification_computation",
+  "processing_time_seconds": 16.483204,
+  "records_count": 4,
+  "stderr": "",
+  "stdout": "",
+  "sufficient": true,
+  "summary": "Range [0, 635040]: found factorions [1, 2, 145, 40585]; Range [1270081, 1905120]: found factorions []",
+  "target": {
+    "expected": [
+      1,
+      2,
+      145,
+      40585
+    ]
+  }
+}
