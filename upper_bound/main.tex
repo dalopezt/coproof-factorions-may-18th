@@ -1,5 +1,9 @@
-% Label: Upper Bound
+**Theorem.** For every natural number $n > 2{,}540{,}160$, the digit-factorial sum of $n$ is strictly less than $n$. That is,
+$$\forall\, n \in \mathbb{N},\quad n > 2{,}540{,}160 \implies \sigma(n) < n,$$
+where $\sigma(n)$ denotes the sum of the factorials of the decimal digits of $n$.
 
-**Theorem (Upper Bound).** For every natural number $n > 2540160$, the digit factorial sum of $n$ is strictly less than $n$.
-
-*Proof.* Unsolved.
+*Proof.* Let $n \in \mathbb{N}$ with $n > 2{,}540{,}160$. By \textbf{Digit Factorial Bound}, the digit-factorial sum satisfies
+$$\sigma(n) \leq 362880 \cdot (\lfloor \log_{10} n \rfloor + 1).$$
+By \textbf{Growth Dominates}, the hypothesis $n > 2{,}540{,}160$ is sufficient to guarantee
+$$362880 \cdot (\lfloor \log_{10} n \rfloor + 1) < n.$$
+Chaining these two inequalities yields $\sigma(n) < n$, as required. $\blacksquare$
