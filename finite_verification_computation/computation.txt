@@ -1,0 +1,23 @@
+def run(input_data, target):
+    import math
+    fact = [math.factorial(i) for i in range(10)]
+    expected = set(target['expected'])
+    found = []
+    unexpected = []
+    for chunk in input_data:
+        start = chunk['start']
+        end = chunk['end']
+        for n in range(start, end + 1):
+            s = sum(fact[int(d)] for d in str(n))
+            if s == n:
+                found.append(n)
+                if n not in expected:
+                    unexpected.append(n)
+    no_unexpected = len(unexpected) == 0
+    found_expected = [x for x in found if x in expected]
+    sufficient = no_unexpected
+    summary = ('Local range checked. Found digit-factorial fixpoints: ' + str(sorted(found)) +
+               '. Unexpected (not in target set): ' + str(unexpected) +
+               '. No unexpected found locally: ' + str(no_unexpected))
+    records = [{'n': n, 'digitFactorialSum': n, 'inExpected': n in expected} for n in found]
+    return {'evidence': found, 'sufficient': sufficient, 'summary': summary, 'records': records}
