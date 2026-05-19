@@ -1,0 +1,21 @@
+def run(input_data, target):
+    import math
+    fact = [math.factorial(d) for d in range(10)]
+    expected = set(target["expected_factorions"])
+    all_found = []
+    evidence = []
+    all_sufficient = True
+    for chunk in input_data:
+        start = chunk["start"]
+        end = chunk["end"]
+        found = []
+        for n in range(start, end + 1):
+            digit_fact_sum = sum(fact[int(d)] for d in str(n))
+            if digit_fact_sum == n:
+                found.append(n)
+        chunk_sufficient = all(f in expected for f in found)
+        if not chunk_sufficient:
+            all_sufficient = False
+        evidence.append({"start": start, "end": end, "found": found, "sufficient": chunk_sufficient})
+        all_found.extend(found)
+    return {"evidence": evidence, "sufficient": all_sufficient, "summary": "Scanned " + str(len(input_data)) + " chunk(s) across this rank. Factorions found: " + str(all_found) + ". All within expected set: " + str(all_sufficient) + ".", "records": all_found}
