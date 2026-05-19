@@ -1,0 +1,32 @@
+def run(input_data, target):
+    FACT = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+
+    def digit_factorial_sum(n):
+        if n == 0:
+            return 1
+        s, tmp = 0, n
+        while tmp:
+            s += FACT[tmp % 10]
+            tmp //= 10
+        return s
+
+    upper = input_data.get('upper_bound', 2540160) if isinstance(input_data, dict) else 2540160
+    evidence = []
+
+    for n in range(upper + 1):
+        dfs = digit_factorial_sum(n)
+        if dfs == n:
+            evidence.append(n)
+            register_record(n=n, digit_factorial_sum=dfs, is_factorion=True)
+
+    expected = set(target.get('expected_values', [])) if isinstance(target, dict) else set()
+    sufficient = set(evidence) == expected
+
+    summary = (
+        f'Scanned n in [0, {upper}]. '
+        f'Factorions found: {evidence}. '
+        f'Expected: {sorted(expected)}. '
+        f'Verification passed: {sufficient}.'
+    )
+
+    return {'evidence': evidence, 'sufficient': sufficient, 'summary': summary}
