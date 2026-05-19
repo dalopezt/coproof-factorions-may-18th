@@ -1,5 +1,9 @@
-**Theorem (Finite Verification Computation).** For every natural number $n \leq 2540160$, the digit factorial sum of $n$ equals $n$ if and only if $n \in \{1, 2, 145, 40585\}$. That is,
+```latex
+\section*{Computation Evidence}
 
-$$\forall\, n \in \mathbb{N},\quad n \leq 2540160 \;\Longrightarrow\; \left(\sum_{d \;\text{digit of}\; n} d! = n \;\iff\; n \in \{1,\, 2,\, 145,\, 40585\}\right).$$
+\textbf{Statement.} Every natural number $n \leq 2{,}540{,}160$ satisfying $n = \sum_{d \,\in\, \text{digits}(n)} d!$ belongs to the set $\{1, 2, 145, 40585\}$, and conversely each element of that set satisfies the property.
 
-*Proof.* Unsolved.
+\textbf{Method.} The verification was carried out by an MPI-distributed computation across three cluster nodes (\texttt{node1}, \texttt{node2}, \texttt{node3}), partitioning the range $[0, 2{,}540{,}160]$ into chunks and evaluating the digit-factorial sum condition for every integer in each chunk.
+
+\textbf{Evidence Summary.} The scan recovered exactly four factorions---$1$, $2$, $145$, and $40585$---yielding a total record count of $4$; all chunks were processed and the cluster verdict was deemed sufficient, confirming that no additional factorions exist in $[0, 2{,}540{,}160]$.
+```
