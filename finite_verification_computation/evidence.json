@@ -1,0 +1,38 @@
+{
+  "artifacts": {
+    "decompress_hint": "Python: import gzip,base64,pathlib; raw=base64.b64decode(pathlib.Path('<file>.gz.b64').read_text()); print(gzip.decompress(raw).decode('utf-8')[:500])",
+    "full_result_compressed_b64": "finite_verification_computation/evidence_full.json.gz.b64",
+    "full_result_hash_sha256": "bf4a8d9c1f6d1ffb4f8c0c4586a6825f52761d469424276026a5c9c9c8f64987",
+    "records_csv_compressed_b64": "finite_verification_computation/evidence_records.csv.gz.b64",
+    "records_csv_hash_sha256": "60d86c940794752731562f26fc42d31034f19e9064d8eb818403cecaaa39236b"
+  },
+  "entrypoint": "run",
+  "error": null,
+  "evidence": [
+    [
+      1,
+      2,
+      145,
+      40585
+    ],
+    []
+  ],
+  "language": "mpi",
+  "lean_statement": "\u2200 n : \u2115, n \u2264 2540160 \u2192 (digitFactorialSum n = n \u2194 n \u2208 ({1, 2, 145, 40585} : Set \u2115))",
+  "node_name": "finite_verification_computation",
+  "processing_time_seconds": 28.510047,
+  "records_count": 4,
+  "stderr": "",
+  "stdout": "",
+  "sufficient": true,
+  "summary": "Local range checked. Found digit-factorial fixpoints: [1, 2, 145, 40585]. Unexpected (not in target set): []. No unexpected found locally: True; Local range checked. Found digit-factorial fixpoints: []. Unexpected (not in target set): []. No unexpected found locally: True",
+  "target": {
+    "expected": [
+      1,
+      2,
+      145,
+      40585
+    ],
+    "upper_bound": 2540160
+  }
+}
