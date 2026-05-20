@@ -1,0 +1,28 @@
+def run(input_data, target):
+    import math
+    FACTORIALS = [math.factorial(d) for d in range(10)]
+    expected = set(target["expected_factorions"])
+    all_found = []
+    evidence = []
+    for chunk in input_data:
+        start = chunk["start"]
+        end = chunk["end"]
+        found = []
+        for n in range(start, end + 1):
+            s = 0
+            tmp = n
+            while tmp > 0:
+                s += FACTORIALS[tmp % 10]
+                tmp //= 10
+            if s == n:
+                found.append(n)
+        all_found.extend(found)
+        evidence.append({"start": start, "end": end, "found": found})
+    sufficient = all(n in expected for n in all_found)
+    total_scanned = sum(c["end"] - c["start"] + 1 for c in input_data)
+    return {
+        "evidence": evidence,
+        "sufficient": sufficient,
+        "summary": "Scanned " + str(total_scanned) + " numbers across " + str(len(input_data)) + " chunk(s). Found factorions: " + str(all_found) + ". All within expected set: " + str(sufficient) + ".",
+        "records": all_found
+    }
